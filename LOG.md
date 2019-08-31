@@ -4,8 +4,8 @@
 
 ----------------------
 1. Split up Jobs
-  -Documentation - XeroxSin
-  -Logo design - mrmjir
-  -Boss - 
-  -Coding - 
+  * Documentation: XeroxSin
+  * Logo design: Mister Mjir
+  * Boss:
+  * Coding:
 2. Finished Logos for multiple themes
