@@ -15,17 +15,18 @@ void GTKManager::init(int argc, char* args[])
   g_signal_connect(webView, "close", G_CALLBACK(closeWebViewCb), main_window);
 
   boost::filesystem::path cwd(boost::filesystem::current_path());
-  string cwdUri = "file://" + cwd.native() + "/test/hello_world.html";
+  string cwdUri = "file://" + cwd.native() + "/test/load.html";
   webkit_web_view_load_uri(webView, cwdUri.c_str());
 
   gtk_widget_grab_focus(GTK_WIDGET(webView));
 
   gtk_widget_show_all(main_window);
+
+  gtk_main(); // this is substituting the run method
 }
 
 void GTKManager::run()
 {
-  gtk_main();
   /*
   while (true)
     if (!gtk_main_iteration_do(FALSE))

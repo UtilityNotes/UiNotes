@@ -1,30 +1,12 @@
 #include "python/py_manager.h"
-#include <cstring>
-using std::strlen;
-using std::strcpy;
-using std::strcat;
+#include <string>
+using std::string;
 #include <iostream>
 using std::cout;
 
-// Testing access to C API
-static char* secretMessage = "Very cool, this is the secret message";
-static PyObject* emb_getSecretMessage(PyObject *self, PyObject *args)
-{
-  return PyUnicode_FromString(secretMessage);
-}
-
-static PyMethodDef EmbMethods[] = {{"getMessage", emb_getSecretMessage, METH_NOARGS, "Get the Secret Message"}, {NULL, NULL, 0, NULL}};
-
-static PyModuleDef EmbModule = {PyModuleDef_HEAD_INIT, "py_handler", NULL, -1, EmbMethods, NULL, NULL, NULL, NULL};
-
-static PyObject* PyInit_emb(void)
-{
-  return PyModule_Create(&EmbModule);
-}
-
 void PyManager::init()
 {
-  PyImport_AppendInittab("py_handler", &PyInit_emb);
+  PyEmbed::embedImportModule();
 
   Py_Initialize();
 }
@@ -41,17 +23,13 @@ PyObject* PyManager::runFile(const char *module, const char *location)
   PyObject *pValue = NULL;
 
   // Allow it to find the file
-  int locLen = 17 + strlen(location);
-  char pyLoc[locLen];
-  strcpy(pyLoc, "sys.path.append(\"");
-  strcat(pyLoc, location);
-  strcat(pyLoc, "\")");
-
+  string pyLoc = "sys.path.append(\"";
+  pyLoc += location;
+  pyLoc += "\")";
   PyRun_SimpleString("import sys");
-  PyRun_SimpleString(pyLoc);
+  PyRun_SimpleString(pyLoc.c_str());
 
   pName = PyUnicode_FromString(module);
-
   // Load the module
   pModule = PyImport_Import(pName);
   if (pModule != NULL)
@@ -85,14 +63,11 @@ PyObject* PyManager::runFile(const char *module, const char *location, const int
   PyObject *pArgs = NULL, *pValue = NULL;
 
   // Allow it to find the file
-  int locLen = 17 + strlen(location);
-  char pyLoc[locLen];
-  strcpy(pyLoc, "sys.path.append(\"");
-  strcat(pyLoc, location);
-  strcat(pyLoc, "\")");
-
+  string pyLoc = "sys.path.append(\"";
+  pyLoc += location;
+  pyLoc += "\")";
   PyRun_SimpleString("import sys");
-  PyRun_SimpleString(pyLoc);
+  PyRun_SimpleString(pyLoc.c_str());
 
   pName = PyUnicode_FromString(module);
 

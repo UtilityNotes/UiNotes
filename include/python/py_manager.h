@@ -4,6 +4,7 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <cstdarg>
+#include "python/py_embed.h"
 
 class PyManager
 {
