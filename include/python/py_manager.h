@@ -1,29 +1,29 @@
-#ifndef PYTHON_HANDLER
-#define PYTHON_HANDLER
+#ifndef PY_MANAGER
+#define PY_MANAGER
 
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <cstdarg>
 
-class PythonHandler
+class PyManager
 {
 public:
   /*
-   * PythonHandler::init()
+   * PyManager::init()
    * ---------------------
    * Needed before using any other method
    */
   static void init();
 
   /*
-   * PythonHandler::close()
+   * PyManager::close()
    * ----------------------
    * Call this before ending the program
    */
   static void close();
 
   /*
-   * PythonHandler::runFile()
+   * PyManager::runFile()
    * ------------------------
    * Runs the main function of a Python Script and
    * returns a PyOject which has the return of the
@@ -33,7 +33,7 @@ public:
   static PyObject* runFile(const char *module, const char *location, const int argc, ...);
 private:
   // Make sure no instances are created
-  PythonHandler();
+  PyManager();
 };
 
 #endif

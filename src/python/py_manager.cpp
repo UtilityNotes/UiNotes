@@ -1,4 +1,4 @@
-#include "python_handler.h"
+#include "python/py_manager.h"
 #include <cstring>
 using std::strlen;
 using std::strcpy;
@@ -22,20 +22,20 @@ static PyObject* PyInit_emb(void)
   return PyModule_Create(&EmbModule);
 }
 
-void PythonHandler::init()
+void PyManager::init()
 {
   PyImport_AppendInittab("py_handler", &PyInit_emb);
 
   Py_Initialize();
 }
 
-void PythonHandler::close()
+void PyManager::close()
 {
   Py_Finalize();
 }
 
 // No arguments
-PyObject* PythonHandler::runFile(const char *module, const char *location)
+PyObject* PyManager::runFile(const char *module, const char *location)
 {
   PyObject *pName = NULL, *pModule = NULL, *pFunc = NULL;
   PyObject *pValue = NULL;
@@ -79,7 +79,7 @@ PyObject* PythonHandler::runFile(const char *module, const char *location)
 }
 
 // Argument overload
-PyObject* PythonHandler::runFile(const char *module, const char *location, const int argc, ...)
+PyObject* PyManager::runFile(const char *module, const char *location, const int argc, ...)
 {
   PyObject *pName = NULL, *pModule = NULL, *pFunc = NULL;
   PyObject *pArgs = NULL, *pValue = NULL;
