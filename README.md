@@ -19,7 +19,10 @@ $ sudo apt-get install libwebkit2gtk-4.0-dev
 ```
 
 ## Planned features coming soon
-- [ ] Open up any file
+- [x] Open up any file
+  - [ ] Clean up the code for this
+- [ ] Create a home menu for the app
+- [ ] Python access to DOM
 
 ## Planned features coming eventually
 - [ ] Easy cross-platform compiling for Linux (Ubuntu), Windows, and MacOS

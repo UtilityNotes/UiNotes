@@ -14,7 +14,7 @@ PyObject* PyEmbed::PyInit_emb()
   return PyModule_Create(&EmbModule);
 }
 
-PyObject* PyEmbed::emb_getSecretInt(PyObject *self, PyObject *args)
+PyObject* PyEmbed::emb_getSecretInt(PyObject* self, PyObject* args)
 {
   return PyLong_FromLong(secretInt);
 }

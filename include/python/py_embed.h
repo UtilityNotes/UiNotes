@@ -20,7 +20,7 @@ private:
   static PyModuleDef EmbModule;
   static PyObject* PyInit_emb();
   // Custom functions
-  static PyObject* emb_getSecretInt(PyObject *self, PyObject *args);
+  static PyObject* emb_getSecretInt(PyObject* self, PyObject* args);
 };
 
 #endif

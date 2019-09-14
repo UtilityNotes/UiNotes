@@ -6,7 +6,13 @@ This is a general progress log. It contains the item that was completed and who 
 For further clarification, this progress log will pertain to anything involing UiNotes, not just this repository.
 
 ----------------------
+
 ## September 14th, 2019- End of Week 3
+1. Progress made on main app (On Linux)
+  * Added menu bar: **Mister Mjir**
+  * Can open up any file (except images) as text, HTML is rendered as it usually is: **Mister Mjir**
+2. Repository changes
+  * Deleted "coding" branch, now "c++" and "python" branches: **Mister Mjir**
 
 ----------------------
 
