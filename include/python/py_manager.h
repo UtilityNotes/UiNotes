@@ -4,6 +4,7 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <cstdarg>
+#include "python/py_embed.h"
 
 class PyManager
 {
@@ -29,8 +30,8 @@ public:
    * returns a PyOject which has the return of the
    * main function of that script.
    */
-  static PyObject* runFile(const char *module, const char *location);
-  static PyObject* runFile(const char *module, const char *location, const int argc, ...);
+  static PyObject* runFile(const char* module, const char* location);
+  static PyObject* runFile(const char* module, const char* location, const int argc, ...);
 private:
   // Make sure no instances are created
   PyManager();
