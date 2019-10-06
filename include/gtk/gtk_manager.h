@@ -11,12 +11,11 @@ using std::string;
 class GTKManager
 {
 public:
-  static void init(int argc, char* args[]); // Creates the window
-  static void run(); // Begins the loop
-  static void destroyWindowCb(GtkWidget* widget, GtkWidget* window);
-  static gboolean closeWebViewCb(WebKitWebView* webView, GtkWidget* window);
+  static void init(int argc, char* args[]); // Creates the window and begin GTK loop
 private:
   GTKManager();
+  static void destroyWindowCb(GtkWidget* widget, GtkWidget* window);
+  static gboolean closeWebViewCb(WebKitWebView* webView, GtkWidget* window);
 };
 
 #endif
