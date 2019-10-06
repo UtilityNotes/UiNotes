@@ -7,6 +7,7 @@ The app of UiNotes
 - Python 3
 - GTK+ 3.0
 - WebKit2GTK+
+- Boost
 
 *You will also need any libraries required by the above libraries*
 ### Installing Dpendencies
@@ -16,6 +17,7 @@ The app of UiNotes
 # Python3 should be installed by default; if not, a google search will show you the best way to get it
 # GTK+ 3.0 should already be installed on Ubuntu; if not, a google search will show you the best way to get it
 $ sudo apt-get install libwebkit2gtk-4.0-dev
+$ sudo apt-get install libboost-dev
 ```
 
 ## Planned features coming soon
