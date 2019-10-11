@@ -2,7 +2,7 @@ CXX      = clang++
 CXXFLAGS = -I./include -I/usr/include
 LDFLAGS  = -lwebextension -Llib/webextension -Wl,-rpath='$$ORIGIN/../lib/webextension' -lboost_filesystem -lboost_system
 
-SRCS     = src/main.cpp src/python/*.cpp src/gtk/*.cpp
+SRCS     = src/main.cpp src/gtk/*.cpp
 
 PYCFLAGS     = -I/usr/include/python3.6m -I/usr/include/python3.6m -Wno-unused-result -Wsign-compare -g -fdebug-prefix-map=/build/python3.6-PEMn0O/python3.6-3.6.8=. -fstack-protector -Wformat -Werror=format-security  -DNDEBUG -g -fwrapv -O3 -Wall
 PYLDFLAGS    = -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -L/usr/lib -lpython3.6m -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions

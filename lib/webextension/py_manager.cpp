@@ -1,12 +1,8 @@
-#include "python/py_manager.h"
-#include <string>
-using std::string;
-#include <iostream>
-using std::cout;
+#include "py_manager.h"
 
 void PyManager::init()
 {
-  PyEmbed::embedImportModule();
+  // PyEmbed::embedImportModule();
 
   Py_Initialize();
 }
@@ -16,8 +12,7 @@ void PyManager::close()
   Py_Finalize();
 }
 
-// No arguments
-PyObject* PyManager::runFile(const char *module, const char *location)
+PyObject* PyManager::runFile(const char* module, const char* location)
 {
   PyObject *pName = NULL, *pModule = NULL, *pFunc = NULL;
   PyObject *pValue = NULL;
@@ -56,8 +51,7 @@ PyObject* PyManager::runFile(const char *module, const char *location)
   return pValue;
 }
 
-// Argument overload
-PyObject* PyManager::runFile(const char *module, const char *location, const int argc, ...)
+PyObject* PyManager::runFile(const char* module, const char* location, const int argc, ...)
 {
   PyObject *pName = NULL, *pModule = NULL, *pFunc = NULL;
   PyObject *pArgs = NULL, *pValue = NULL;
