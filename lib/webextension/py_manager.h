@@ -4,7 +4,10 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <cstdarg>
-#include "python/py_embed.h"
+#include <string>
+using std::string;
+#include <iostream>
+using std::cout;
 
 class PyManager
 {
@@ -15,6 +18,7 @@ public:
    * Needed before using any other method
    */
   static void init();
+
 
   /*
    * PyManager::close()

@@ -24,7 +24,15 @@ $ sudo apt-get install libboost-dev
 - [x] Open up any file
   - [ ] Clean up the code for this
 - [ ] Create a home menu for the app
-- [ ] Python access to DOM
+- [x] Python access to DOM
+  - [ ] Clean up the code for this
+  - [ ] Python can store values from JS
+    - [x] Numbers
+    - [x] Booleans
+    - [x] Arrays
+    - [ ] Functions
+    - [ ] Objects
 
 ## Planned features coming eventually
 - [ ] Easy cross-platform compiling for Linux (Ubuntu), Windows, and MacOS
+- [ ] Make Python feel like Python instead of just a function that runs javascript
