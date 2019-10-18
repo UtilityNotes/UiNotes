@@ -18,19 +18,13 @@ General References:
 
 References:
   * Extending Python: https://docs.python.org/3/extending/extending.html
-----------------------
-
+  
 ----------------------
 
 ## October 5th, 2019, End of Week 6
 1. Progress made on main app (Linux)
   * Extension now showing the uri: **Mister Mjir**
-
-References:
-  * Boost Python: https://www.boost.org/doc/libs/1_71_0/libs/python/doc/html/tutorial/index.html
-
-----------------------
-
+  
 ----------------------
 
 ## September 28th, 2019- End of Week 5
@@ -41,13 +35,11 @@ References:
   * Most likely going to use CMake
 
 References:
- * Shared ibrary Guides:
+ * Shared Library Guides:
   * http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html
   * http://www.tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html
  * Makefile Reference: https://www.tutorialspoint.com/makefile/makefile_quick_guide.htm
-
-----------------------
-
+ 
 ----------------------
 
 ## September 21st, 2019- End of Week 4
@@ -58,7 +50,6 @@ References:
 
 References:
 * WebKit2GTK+ Web Extensions: https://blogs.igalia.com/carlosgc/2013/09/10/webkit2gtk-web-process-extensions/
-----------------------
 
 ----------------------
 
@@ -68,7 +59,6 @@ References:
   * Can open up any file (except images) as text, HTML is rendered as it usually is: **Mister Mjir**
 2. Repository changes
   * Deleted "coding" branch, now "c++" and "python" branches: **Mister Mjir**
-
 
   References:
   * Creating a menu: https://developer.gnome.org/gtk-tutorial/stable/c1499.html
