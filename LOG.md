@@ -10,6 +10,14 @@ General References:
 * WebKitGTK: https://webkitgtk.org/reference/webkit2gtk/stable/index.html
 ----------------------
 
+## October 19th, 2019, End of Week 8
+1. Progress made on main app (Linux)
+  * Cleaned up extension code: **Mister Mjir**
+    * Separated Python stuff from webkit stuff
+    * Made pyjs library neater by breaking up code into multiple files
+		
+----------------------
+
 ## October 12th, 2019, End of Week 7
 1. Progress made on main app (Linux)
   * Javascript can be executed in C++: **Mister Mjir**
