@@ -44,14 +44,14 @@ void GTKManager::init(int argc, char* args[])
   boost::filesystem::path cwd(boost::filesystem::current_path());
   string cwdUri = "file://" + cwd.native() + "/ui/menu.html";
   webkit_web_view_load_uri(webView, cwdUri.c_str());
-  /*
+
   //Enable developer extras
   WebKitSettings* setting = webkit_web_view_get_settings(WEBKIT_WEB_VIEW(webView));
   g_object_set(G_OBJECT(setting), "enable-developer-extras", TRUE, NULL);
   // Show inspector
   WebKitWebInspector* inspector = webkit_web_view_get_inspector(WEBKIT_WEB_VIEW(webView));
   webkit_web_inspector_show(WEBKIT_WEB_INSPECTOR(inspector));
-  */
+  
 
   gtk_widget_grab_focus(GTK_WIDGET(webView)); // Keyboard focus
 

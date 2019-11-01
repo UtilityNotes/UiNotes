@@ -1,5 +1,5 @@
-CXX      = clang++
-CXXFLAGS = -I./include -I/usr/include
+CXX      = -clang++
+CXXFLAGS = -g -I./include -I/usr/include
 LDFLAGS  = -lwebextension -Llib/webextension -Wl,-rpath='$$ORIGIN/../lib/webextension' -lboost_filesystem -lboost_system
 
 SRCS     = src/main.cpp src/gtk/*.cpp

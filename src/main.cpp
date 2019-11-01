@@ -1,5 +1,4 @@
 #include "gtk/gtk_manager.h"
-// #include "python/py_manager.h"
 
 int main(int argc, char* args[])
 {

@@ -2,8 +2,6 @@
 
 void PyManager::init()
 {
-  // PyEmbed::embedImportModule();
-
   Py_Initialize();
 }
 
@@ -16,6 +14,8 @@ PyObject* PyManager::runFile(const char* module, const char* location)
 {
   PyObject *pName = NULL, *pModule = NULL, *pFunc = NULL;
   PyObject *pValue = NULL;
+
+  PyErr_Print();
 
   // Allow it to find the file
   string pyLoc = "sys.path.append(\"";
@@ -41,7 +41,9 @@ PyObject* PyManager::runFile(const char* module, const char* location)
       cout << "PyObject_GetAttrString() failed:\nModule- " << module << "\nLocation- " << location << "\n\n";
   }
   else
+  {
     cout << "PyImport_Import() failed:\nModule- " << module << "\nLocation- " << location << "\n\n";
+  }
 
   // Free everything from memory
   Py_XDECREF(pName);
@@ -103,4 +105,5 @@ PyObject* PyManager::runFile(const char* module, const char* location, const int
   Py_XDECREF(pArgs);
 
   return pValue;
+  return PyLong_FromLong(0);
 }
