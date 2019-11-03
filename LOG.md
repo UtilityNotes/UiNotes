@@ -10,6 +10,17 @@ General References:
 * WebKitGTK: https://webkitgtk.org/reference/webkit2gtk/stable/index.html
 ----------------------
 
+## Novembet 2nd, 2019, End of week 10
+1. Progress made on main app (Linux)
+  * Python can now call JS (jQuery) functions without parameters (html is the only function for now): **Mister Mjir**
+  
+----------------------
+
+## October 26th, 2019, End of week 9
+1. No progress made
+
+----------------------
+
 ## October 19th, 2019, End of Week 8
 1. Progress made on main app (Linux)
   * Cleaned up extension code: **Mister Mjir**
@@ -57,7 +68,7 @@ References:
   * Trying to get Javascript API to work
 
 References:
-* WebKit2GTK+ Web Extensions: https://blogs.igalia.com/carlosgc/2013/09/10/webkit2gtk-web-process-extensions/
+  * WebKit2GTK+ Web Extensions: https://blogs.igalia.com/carlosgc/2013/09/10/webkit2gtk-web-process-extensions/
 
 ----------------------
 
@@ -68,7 +79,7 @@ References:
 2. Repository changes
   * Deleted "coding" branch, now "c++" and "python" branches: **Mister Mjir**
 
-  References:
+References:
   * Creating a menu: https://developer.gnome.org/gtk-tutorial/stable/c1499.html
   * Opening a file: https://developer.gnome.org/gtk3/stable/GtkFileChooserDialog.html
 
@@ -82,7 +93,7 @@ References:
   * Able to render HTML files with CSS: **Mister Mjir**
   * Able to run Python files and allow Python to access the API through import: **Mister Mjir**
 
-  References:
+References:
   * Using WebKit to render HTML: https://wiki.gnome.org/Projects/WebKitGtk/ProgrammingGuide
   * Integrating Python and C++: https://docs.python.org/3/extending/embedding.html
 
