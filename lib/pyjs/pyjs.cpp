@@ -10,7 +10,11 @@ PyObject* jsToPy(JSCValue*);
 static void printPropertyNames(JSCValue*);
 
 // Module Method Table
-PyMethodDef EmbMethods[] = {{"run", emb_js_run, METH_VARARGS, "Execute JS Code"}, {NULL, NULL, 0, NULL}};
+PyMethodDef EmbMethods[] =
+{
+  {"run", emb_js_run, METH_VARARGS, "Execute JS Code"},
+  {NULL, NULL, 0, NULL}
+};
 PyModuleDef EmbModule = {PyModuleDef_HEAD_INIT, "js", NULL, -1, EmbMethods, NULL, NULL, NULL, NULL};
 
 // Python stuff
@@ -79,12 +83,23 @@ PyObject* jsToPy(JSCValue* jsVar)
   // Objects
   else if (jsc_value_is_object(jsVar))
   {
-    std::cout << jsc_value_to_string(jsc_value_object_get_property(jsVar, "0")) << "\n";
-    std::cout << jsc_value_to_string(jsc_value_object_get_property(jsVar, "html")) << "\n\n";
+    /*std::cout << jsc_value_to_string(jsc_value_object_get_property(jsVar, "0")) << "\n";
+    if (jsc_value_object_is_instance_of(jsVar, "HTMLDivElement"))
+    {
+      std::cout << "Instance of HTMLDivElement" << "\n";
+    }
+    std::cout << jsc_value_to_string(jsc_value_object_get_property(jsVar, "html")) << "\n\n";*/
     // printPropertyNames(jsVar);
 
+    // Create a PyCapsule with the jsVar
+    PyObject* capsule = PyCapsule_New((void*) jsVar, "JSCValue", NULL);
+    PyObject* argList = Py_BuildValue("(O)", capsule);
+    PyObject *obj = PyObject_CallObject((PyObject*) &PyDOM::TypeObj, argList);
+    Py_DECREF(argList);
+    Py_DECREF(capsule);
 
-    return PyUnicode_FromString("0");
+    //return PyUnicode_FromString("0");
+    return obj;
   }
   // Return 0 if nothing else, returning NULL terminates the script
   else
@@ -96,7 +111,7 @@ PyObject* jsToPy(JSCValue* jsVar)
 /*
  * printPropertyNames()
  */
- void printPropertyNames(JSCValue* jsVar)
+void printPropertyNames(JSCValue* jsVar)
 {
   char** foo = jsc_value_object_enumerate_properties(jsVar);
 

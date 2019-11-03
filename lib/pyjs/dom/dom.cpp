@@ -1,4 +1,5 @@
 #include "dom.h"
+#include <iostream>
 
 PyMemberDef PyDOM::members[] =
 {
@@ -17,6 +18,13 @@ PyTypeObject PyDOM::TypeObj =
   .tp_init = (initproc) PyDOM::__init__,
   .tp_dealloc = (destructor) PyDOM::__dealloc__,
   .tp_members = PyDOM::members,
+  .tp_methods = PyDOM::methods,
+};
+
+PyMethodDef PyDOM::methods[] =
+{
+  {"html", (PyCFunction) PyDOM::html, METH_VARARGS, "Return the html contents of the element"},
+  {NULL}
 };
 
 void PyDOM::__dealloc__(DOM* self)
@@ -30,7 +38,12 @@ PyObject* PyDOM::__new__(PyTypeObject* type, PyObject* args, PyObject* kwds)
   self = (DOM*) type->tp_alloc(type, 0);
   if (self != NULL)
   {
+    static char *kwlist[] = {const_cast<char*>("JSCV"), NULL};
 
+    PyObject* capsule = NULL;
+    PyArg_ParseTupleAndKeywords(args, kwds, "O", kwlist, &capsule);
+    self->JSCV = (JSCValue*) PyCapsule_GetPointer(capsule, "JSCValue");
+    Py_DECREF(capsule);
   }
   return (PyObject*) self;
 }
@@ -41,23 +54,19 @@ int PyDOM::__init__(DOM* self, PyObject* args, PyObject* kwds)
   return 0;
 }
 
-PyObject* PyDOM::getTag(DOM* self, PyObject* Py_UNUSED(ignored))
+PyObject* PyDOM::html(DOM* self, PyObject* args)
 {
-  if (self->tag == NULL)
+  char* string = NULL;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
   {
-    PyErr_SetString(PyExc_AttributeError, "tag");
-    return NULL;
+    std::cout << string << "\n";
+    jsc_value_object_invoke_method(self->JSCV, "html", G_TYPE_STRING, string);
+    delete string;
+    return PyLong_FromLong(0);
   }
-
-  return PyUnicode_FromFormat("%S", self->tag);
-}
-
-PyObject* PyDOM::html()
-{
-  return PyUnicode_FromString(jsc_value_is_string(jsc_value_object_invoke_method(self->JSCV, "html", G_TYPE_NONE)));
-}
-
-PyObject* PyDOM::html(const char*)
-{
-  return PyLong_FromLong(0);
+  else
+  {
+    return PyUnicode_FromString(jsc_value_to_string(jsc_value_object_invoke_method(self->JSCV, "html", G_TYPE_NONE)));
+  }
 }

@@ -41,9 +41,7 @@ $ sudo apt-get install libboost-dev
     - [x] Arrays
     - [ ] Functions
     - [ ] Objects
+- [ ] Make Python feel like Python instead of just a function that runs javascript
 
 ## Planned features coming eventually
 - [ ] Easy cross-platform compiling for Linux (Ubuntu), Windows, and MacOS
-- [ ] Make Python feel like Python instead of just a function that runs javascript
-
-Trying to read values of char**, https://stackoverflow.com/questions/4993076/char-and-dereferencing-pointers

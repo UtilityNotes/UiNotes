@@ -7,22 +7,25 @@
 
 typedef struct
 {
-  JSCValue* JSCV; // The JSC value of the struct
   PyObject_HEAD
+  JSCValue* JSCV; // The JSC value of the struct
 } DOM;
 
 class PyDOM
 {
 public:
+  // Custom functions
+  static PyObject* html(DOM* self, PyObject*);
+
+  // Variables
   static PyMemberDef members[];
   static PyTypeObject TypeObj;
+  static PyMethodDef methods[];
 
+  // Default functions
   static void __dealloc__(DOM* self);
   static PyObject* __new__(PyTypeObject* type, PyObject* args, PyObject* kwds);
   static int __init__(DOM* self, PyObject* args, PyObject* kwds);
-  // Custom functions
-  static PyObject* html();
-  static PyObject* html(const char*);
 private:
   PyDOM();
 };
