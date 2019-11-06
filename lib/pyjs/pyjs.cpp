@@ -8,6 +8,7 @@ PyMODINIT_FUNC PyInit_js(void);
 PyObject* emb_js_run(PyObject* self, PyObject* args);
 PyObject* jsToPy(JSCValue*);
 static void printPropertyNames(JSCValue*);
+PyObject* buildPyDOM(JSCValue* jscv);
 
 // Module Method Table
 PyMethodDef EmbMethods[] =
@@ -91,15 +92,16 @@ PyObject* jsToPy(JSCValue* jsVar)
     std::cout << jsc_value_to_string(jsc_value_object_get_property(jsVar, "html")) << "\n\n";*/
     // printPropertyNames(jsVar);
 
-    // Create a PyCapsule with the jsVar
+    /*// Create a PyCapsule with the jsVar
     PyObject* capsule = PyCapsule_New((void*) jsVar, "JSCValue", NULL);
     PyObject* argList = Py_BuildValue("(O)", capsule);
     PyObject *obj = PyObject_CallObject((PyObject*) &PyDOM::TypeObj, argList);
     Py_DECREF(argList);
-    Py_DECREF(capsule);
+    Py_DECREF(capsule);*/
+    return buildPyDOM(jsVar);
 
     //return PyUnicode_FromString("0");
-    return obj;
+    // return obj;
   }
   // Return 0 if nothing else, returning NULL terminates the script
   else
@@ -136,4 +138,12 @@ void PyJS_JSHandler(WebKitWebPage* webPage)
   PyManager::init();
   PyManager::runFile("menu", "./ui/");
   PyManager::close();
+}
+
+PyObject* buildPyDOM(JSCValue* jscv)
+{
+  PyTypeObject* type = &PyDOM::TypeObj;
+  DOM *self = (DOM*) type->tp_alloc(type, 0);
+  self->JSCV = jscv;
+  return (PyObject*) self;
 }

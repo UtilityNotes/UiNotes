@@ -15,7 +15,8 @@ class PyDOM
 {
 public:
   // Custom functions
-  static PyObject* html(DOM* self, PyObject*);
+  static PyObject* html(DOM* self, PyObject* args);
+  static PyObject* css (DOM* self, PyObject* args);
 
   // Variables
   static PyMemberDef members[];
@@ -24,8 +25,6 @@ public:
 
   // Default functions
   static void __dealloc__(DOM* self);
-  static PyObject* __new__(PyTypeObject* type, PyObject* args, PyObject* kwds);
-  static int __init__(DOM* self, PyObject* args, PyObject* kwds);
 private:
   PyDOM();
 };
