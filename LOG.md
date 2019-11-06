@@ -10,7 +10,15 @@ General References:
 * WebKitGTK: https://webkitgtk.org/reference/webkit2gtk/stable/index.html
 ----------------------
 
-## Novembet 2nd, 2019, End of week 10
+## November 9th, 2019, End of week 11
+1. Progress on main app (Linux)
+  * Python can call functions with parameters: **Mister Mjir**
+  * CSS function added: **Mister Mjir**
+  * Factory function (Python DOM object can only be added from C++ factory function): **Mister Mjir**
+
+----------------------
+
+## November 2nd, 2019, End of week 10
 1. Progress made on main app (Linux)
   * Python can now call JS (jQuery) functions without parameters (html is the only function for now): **Mister Mjir**
   
