@@ -1,8 +1,12 @@
 #include <webkit2/webkit-web-extension.h>
 #include <pyjs/pyjs.h>
+#include "jquery/jquery.h"
 
 static void document_loaded_callback(WebKitWebPage* webPage, gpointer userData)
 {
+  // Run jQuery
+  jsc_context_evaluate(webkit_frame_get_js_context(webkit_web_page_get_main_frame(webPage)), jQuery::getStr().c_str(), -1);
+
   PyJS_JSHandler(webPage);
 }
 

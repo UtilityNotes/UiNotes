@@ -84,24 +84,9 @@ PyObject* jsToPy(JSCValue* jsVar)
   // Objects
   else if (jsc_value_is_object(jsVar))
   {
-    /*std::cout << jsc_value_to_string(jsc_value_object_get_property(jsVar, "0")) << "\n";
-    if (jsc_value_object_is_instance_of(jsVar, "HTMLDivElement"))
-    {
-      std::cout << "Instance of HTMLDivElement" << "\n";
-    }
-    std::cout << jsc_value_to_string(jsc_value_object_get_property(jsVar, "html")) << "\n\n";*/
     // printPropertyNames(jsVar);
 
-    /*// Create a PyCapsule with the jsVar
-    PyObject* capsule = PyCapsule_New((void*) jsVar, "JSCValue", NULL);
-    PyObject* argList = Py_BuildValue("(O)", capsule);
-    PyObject *obj = PyObject_CallObject((PyObject*) &PyDOM::TypeObj, argList);
-    Py_DECREF(argList);
-    Py_DECREF(capsule);*/
     return buildPyDOM(jsVar);
-
-    //return PyUnicode_FromString("0");
-    // return obj;
   }
   // Return 0 if nothing else, returning NULL terminates the script
   else
@@ -120,7 +105,7 @@ void printPropertyNames(JSCValue* jsVar)
   for (char** ptr = foo; *ptr != NULL; ptr++)
   {
     std::cout << *ptr << "\n";
-    std::cout << ptr << "\n\n";
+    std::cout << jsc_value_to_string(jsc_value_object_get_property(jsVar, *ptr)) << "\n\n";
   }
 }
 
@@ -132,7 +117,6 @@ void printPropertyNames(JSCValue* jsVar)
 void PyJS_JSHandler(WebKitWebPage* webPage)
 {
   jsCtx = webkit_frame_get_js_context(webkit_web_page_get_main_frame(webPage));
-  jsc_context_evaluate(jsCtx, jQuery::getStr().c_str(), -1); // Runs jQuery
 
   embedImportModule();
   PyManager::init();

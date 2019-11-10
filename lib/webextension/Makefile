@@ -1,5 +1,5 @@
 CXX = clang++
-SRCS = *.cpp
+SRCS = jquery/*.cpp *.cpp
 
 CXXFLAGS = -I../
 LDFLAGS = -lpyjs -L../pyjs -Wl,-rpath='$$ORIGIN/../pyjs'

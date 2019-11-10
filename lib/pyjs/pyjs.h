@@ -5,7 +5,6 @@
 #include <jsc/jsc.h>
 #include "py_manager.h"
 #include "dom/dom.h"
-#include "jquery/jquery.h"
 #include <string>
 
 extern void PyJS_JSHandler(WebKitWebPage*);
