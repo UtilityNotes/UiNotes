@@ -171,6 +171,11 @@ void PyDOM::__dealloc__(DOM* self)
 // .add()
 PyObject* PyDOM::add(DOM* self, PyObject* args)
 {
+  const char* string;
+  if (PyArg_ParseTuple(args, "|s", &string);)
+  {
+    jsc_value_object_invoke_method(self->JSCV, "add", G_TYPE_STRING, string, G_TYPE_NONE);
+  }
   return PyLong_FromLong(0);
 }
 
@@ -183,6 +188,12 @@ PyObject* PyDOM::addBack(DOM* self, PyObject* args)
 // .addClass()
 PyObject* PyDOM::addClass(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    jsc_value_object_invoke_method(self->JSCV, "addClass", G_TYPE_STRING, string, G_TYPE_NONE);
+  }
   return PyLong_FromLong(0);
 }
 
@@ -238,6 +249,12 @@ PyObject* PyDOM::animate(DOM* self, PyObject* args)
 // .append()
 PyObject* PyDOM::append(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    jsc_value_object_invoke_method(self->JSCV, "append", G_TYPE_STRING, string, G_TYPE_NONE);
+  }
   return PyLong_FromLong(0);
 }
 
@@ -333,6 +350,11 @@ PyObject* PyDOM::css(DOM* self, PyObject* args)
       return PyLong_FromLong(0);
     }
     return PyUnicode_FromString(jsc_value_to_string(jsc_value_object_invoke_method(self->JSCV, "css", G_TYPE_STRING, property, G_TYPE_NONE)));
+  }
+  PyObject* tuple;
+  if (tuple)
+  {
+
   }
   return PyLong_FromLong(0);
 }
