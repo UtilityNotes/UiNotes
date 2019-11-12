@@ -22,7 +22,6 @@ General References:
 ## November 2nd, 2019, End of week 10
 1. Progress made on main app (Linux)
   * Python can now call JS (jQuery) functions without parameters (html is the only function for now): **Mister Mjir**
-
 ----------------------
 
 ## October 26th, 2019, End of week 9
