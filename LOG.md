@@ -15,13 +15,14 @@ General References:
   * Python can call functions with parameters: **Mister Mjir**
   * CSS function added: **Mister Mjir**
   * Factory function (Python DOM object can only be added from C++ factory function): **Mister Mjir**
+  * Added blank functions for all jQuery functions for the object: **Mister Mjir**
 
 ----------------------
 
 ## November 2nd, 2019, End of week 10
 1. Progress made on main app (Linux)
   * Python can now call JS (jQuery) functions without parameters (html is the only function for now): **Mister Mjir**
-  
+
 ----------------------
 
 ## October 26th, 2019, End of week 9
@@ -34,7 +35,7 @@ General References:
   * Cleaned up extension code: **Mister Mjir**
     * Separated Python stuff from webkit stuff
     * Made pyjs library neater by breaking up code into multiple files
-		
+
 ----------------------
 
 ## October 12th, 2019, End of Week 7
@@ -45,13 +46,13 @@ General References:
 
 References:
   * Extending Python: https://docs.python.org/3/extending/extending.html
-  
+
 ----------------------
 
 ## October 5th, 2019, End of Week 6
 1. Progress made on main app (Linux)
   * Extension now showing the uri: **Mister Mjir**
-  
+
 ----------------------
 
 ## September 28th, 2019- End of Week 5
@@ -66,7 +67,7 @@ References:
   * http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html
   * http://www.tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html
  * Makefile Reference: https://www.tutorialspoint.com/makefile/makefile_quick_guide.htm
- 
+
 ----------------------
 
 ## September 21st, 2019- End of Week 4
