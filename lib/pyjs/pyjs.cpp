@@ -6,6 +6,7 @@ static JSCContext* jsCtx; // Keeping this global so that Python can access it
 void embedImportModule();
 PyMODINIT_FUNC PyInit_js(void);
 PyObject* emb_js_run(PyObject* self, PyObject* args);
+PyObject* emb_js_selector(PyObject* self, PyObject* args);
 PyObject* jsToPy(JSCValue*);
 static void printPropertyNames(JSCValue*);
 PyObject* buildPyDOM(JSCValue* jscv);
@@ -14,6 +15,7 @@ PyObject* buildPyDOM(JSCValue* jscv);
 PyMethodDef EmbMethods[] =
 {
   {"run", emb_js_run, METH_VARARGS, "Execute JS Code"},
+  {"S", emb_js_selector, METH_VARARGS, "Execute JS Code"},
   {NULL, NULL, 0, NULL}
 };
 PyModuleDef EmbModule = {PyModuleDef_HEAD_INIT, "js", NULL, -1, EmbMethods, NULL, NULL, NULL, NULL};
@@ -130,4 +132,17 @@ PyObject* buildPyDOM(JSCValue* jscv)
   DOM *self = (DOM*) type->tp_alloc(type, 0);
   self->JSCV = jscv;
   return (PyObject*) self;
+}
+
+PyObject* emb_js_selector(PyObject* self, PyObject* args)
+{
+  char* selector;
+  PyArg_ParseTuple(args, "s", &selector);
+  string command = "$(\"";
+  command += selector;
+  command += "\")";
+
+  // Return result if possible
+  JSCValue* result = jsc_context_evaluate(jsCtx, command.c_str(), -1);
+  return jsToPy(result);
 }

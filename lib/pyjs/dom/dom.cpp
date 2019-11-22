@@ -1,6 +1,15 @@
 #include "dom.h"
 #include <iostream>
 
+/* Clean this up later */
+PyObject* biuldPythonDOM(JSCValue* jscv)
+{
+  PyTypeObject* type = &PyDOM::TypeObj;
+  DOM *self = (DOM*) type->tp_alloc(type, 0);
+  self->JSCV = jscv;
+  return (PyObject*) self;
+}
+
 /* PyObject Definition Stuff */
 PyMemberDef PyDOM::members[] =
 {
@@ -172,9 +181,10 @@ void PyDOM::__dealloc__(DOM* self)
 PyObject* PyDOM::add(DOM* self, PyObject* args)
 {
   const char* string;
-  if (PyArg_ParseTuple(args, "|s", &string);)
+  if (PyArg_ParseTuple(args, "s", &string))
   {
-    jsc_value_object_invoke_method(self->JSCV, "add", G_TYPE_STRING, string, G_TYPE_NONE);
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "add", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
   }
   return PyLong_FromLong(0);
 }
@@ -182,6 +192,13 @@ PyObject* PyDOM::add(DOM* self, PyObject* args)
 // .addBack()
 PyObject* PyDOM::addBack(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "addBack", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
@@ -192,7 +209,8 @@ PyObject* PyDOM::addClass(DOM* self, PyObject* args)
   PyArg_ParseTuple(args, "|s", &string);
   if (string)
   {
-    jsc_value_object_invoke_method(self->JSCV, "addClass", G_TYPE_STRING, string, G_TYPE_NONE);
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "addClass", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
   }
   return PyLong_FromLong(0);
 }
@@ -200,6 +218,13 @@ PyObject* PyDOM::addClass(DOM* self, PyObject* args)
 // .after()
 PyObject* PyDOM::after(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "after", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
@@ -207,42 +232,91 @@ PyObject* PyDOM::after(DOM* self, PyObject* args)
 // .ajaxComplete()
 PyObject* PyDOM::ajaxComplete(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "ajaxComplete", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .ajaxError()
 PyObject* PyDOM::ajaxError(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "ajaxError", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .ajaxSend()
 PyObject* PyDOM::ajaxSend(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "ajaxSend", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .ajaxStart()
 PyObject* PyDOM::ajaxStart(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "ajaxStart", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .ajaxStop()
 PyObject* PyDOM::ajaxStop(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "ajaxStop", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .ajaxSuccess()
 PyObject* PyDOM::ajaxSuccess(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "ajaxSuccess", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .animate()
 PyObject* PyDOM::animate(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "animate", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
@@ -253,7 +327,8 @@ PyObject* PyDOM::append(DOM* self, PyObject* args)
   PyArg_ParseTuple(args, "|s", &string);
   if (string)
   {
-    jsc_value_object_invoke_method(self->JSCV, "append", G_TYPE_STRING, string, G_TYPE_NONE);
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "append", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
   }
   return PyLong_FromLong(0);
 }
@@ -261,78 +336,169 @@ PyObject* PyDOM::append(DOM* self, PyObject* args)
 // .appendTo()
 PyObject* PyDOM::appendTo(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "append", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .attr()
 PyObject* PyDOM::attr(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "attr", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .before()
 PyObject* PyDOM::before(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "before", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .bind()
 PyObject* PyDOM::bind(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "bind", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .blur()
 PyObject* PyDOM::blur(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "blur", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .change()
 PyObject* PyDOM::change(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "change", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .children()
 PyObject* PyDOM::children(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "children", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .clearQueue()
 PyObject* PyDOM::clearQueue(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "clearQueue", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .click()
 PyObject* PyDOM::click(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "click", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .clone()
 PyObject* PyDOM::clone(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "clone", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .closest()
 PyObject* PyDOM::closest(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "closest", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .contents()
 PyObject* PyDOM::contents(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "contents", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .contextmenu()
 PyObject* PyDOM::contextmenu(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "contextmenu", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
@@ -362,162 +528,345 @@ PyObject* PyDOM::css(DOM* self, PyObject* args)
 // .data()
 PyObject* PyDOM::data(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "data", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .dblclick()
 PyObject* PyDOM::dblclick(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "dblclick", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .delay()
 PyObject* PyDOM::delay(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "delay", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .delegate()
 PyObject* PyDOM::delegate(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "delegate", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .dequeue()
 PyObject* PyDOM::dequeue(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "dequeue", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .detach()
 PyObject* PyDOM::detach(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "detach", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .each()
 PyObject* PyDOM::each(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "each", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .empty()
 PyObject* PyDOM::empty(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "empty", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .end()
 PyObject* PyDOM::end(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "end", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .eq()
 PyObject* PyDOM::eq(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "eq", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .fadeIn()
 PyObject* PyDOM::fadeIn(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "fadeIn", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .fadeOut()
 PyObject* PyDOM::fadeOut(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "fadeOut", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .fadeTo()
 PyObject* PyDOM::fadeTo(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "fadeTo", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .fadeToggle()
 PyObject* PyDOM::fadeToggle(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "fadeToggle", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .filter()
 PyObject* PyDOM::filter(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "filter", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .find()
 PyObject* PyDOM::find(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "find", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .finish()
 PyObject* PyDOM::finish(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "finish", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .first()
 PyObject* PyDOM::first(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "first", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .focus()
 PyObject* PyDOM::focus(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "focus", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .focusin()
 PyObject* PyDOM::focusin(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "focusin", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .focusout()
 PyObject* PyDOM::focusout(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "focusout", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .get()
 PyObject* PyDOM::get(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "get", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .has()
 PyObject* PyDOM::has(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "has", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .hasClass()
 PyObject* PyDOM::hasClass(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "hasClass", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .height()
 PyObject* PyDOM::height(DOM* self, PyObject* args)
 {
-  return PyLong_FromLong(0);
+  JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "height", G_TYPE_NONE);
+  return PyLong_FromLong(jsc_value_to_double(jsVar));
 }
 
 // .hide()
 PyObject* PyDOM::hide(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "hide", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .hover()
 PyObject* PyDOM::hover(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "hover", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
@@ -533,486 +882,1016 @@ PyObject* PyDOM::html(DOM* self, PyObject* args)
   }
   else
   {
-    return PyUnicode_FromString(jsc_value_to_string(jsc_value_object_invoke_method(self->JSCV, "html", G_TYPE_NONE)));
+    return PyUnicode_FromString(jsc_value_to_string(JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "html", G_TYPE_NONE)));
   }
 }
 
 // .index()
 PyObject* PyDOM::index(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "index", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .innerHeight()
 PyObject* PyDOM::innerHeight(DOM* self, PyObject* args)
 {
-  return PyLong_FromLong(0);
+  JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "innerHeight", G_TYPE_NONE);
+  return PyLong_FromLong(jsc_value_to_double(jsVar));
 }
 
 // .innerWidth()
 PyObject* PyDOM::innerWidth(DOM* self, PyObject* args)
 {
-  return PyLong_FromLong(0);
+  JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "innerWidth", G_TYPE_NONE);
+  return PyLong_FromLong(jsc_value_to_double(jsVar));
 }
 
 // .insertAfter()
 PyObject* PyDOM::insertAfter(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "insertAfter", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .insertBefore()
 PyObject* PyDOM::insertBefore(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "insertBefore", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .is()
 PyObject* PyDOM::is(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "is", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .keydown()
 PyObject* PyDOM::keydown(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "keydown", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .keypress()
 PyObject* PyDOM::keypress(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "keypress", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .keyup()
 PyObject* PyDOM::keyup(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "keyup", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .last()
 PyObject* PyDOM::last(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "last", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .load()
 PyObject* PyDOM::load(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "load", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .map()
 PyObject* PyDOM::map(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "map", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .mousedown()
 PyObject* PyDOM::mousedown(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "mousedown", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .mouseenter()
 PyObject* PyDOM::mouseenter(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "mouseenter", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .mouseleave()
 PyObject* PyDOM::mouseleave(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "mouseleave", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .mousemove()
 PyObject* PyDOM::mousemove(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "mousemove", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .mouseout()
 PyObject* PyDOM::mouseout(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "mouseout", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .mouseover()
 PyObject* PyDOM::mouseover(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "mouseover", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .mouseup()
 PyObject* PyDOM::mouseup(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "mouseup", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .next()
 PyObject* PyDOM::next(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "next", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .nextAll()
 PyObject* PyDOM::nextAll(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "nextAll", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .nextUntil()
 PyObject* PyDOM::nextUntil(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "nextUntil", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .isnot()
 PyObject* PyDOM::isnot(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "not", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .off()
 PyObject* PyDOM::off(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "off", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .offset()
 PyObject* PyDOM::offset(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "offset", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .offsetParent()
 PyObject* PyDOM::offsetParent(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "offsetParent", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .on()
 PyObject* PyDOM::on(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "on", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .one()
 PyObject* PyDOM::one(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "one", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .outerHeight()
 PyObject* PyDOM::outerHeight(DOM* self, PyObject* args)
 {
-  return PyLong_FromLong(0);
+  JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "outerHeight", G_TYPE_NONE);
+  return PyLong_FromLong(jsc_value_to_double(jsVar));
 }
 
 // .outerWidth()
 PyObject* PyDOM::outerWidth(DOM* self, PyObject* args)
 {
-  return PyLong_FromLong(0);
+  JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "outerWidth", G_TYPE_NONE);
+  return PyLong_FromLong(jsc_value_to_double(jsVar));
 }
 
 // .parent()
 PyObject* PyDOM::parent(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "parent", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .parents()
 PyObject* PyDOM::parents(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "parents", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .parentsUntil()
 PyObject* PyDOM::parentsUntil(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "parentsUntil", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .position()
 PyObject* PyDOM::position(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "position", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .prepend()
 PyObject* PyDOM::prepend(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "prepend", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .prependTo()
 PyObject* PyDOM::prependTo(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "prependTo", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .prev()
 PyObject* PyDOM::prev(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "prev", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .prevAll()
 PyObject* PyDOM::prevAll(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "prevAll", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .prevUntil()
 PyObject* PyDOM::prevUntil(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "prevUntil", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .promise()
 PyObject* PyDOM::promise(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "promise", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .prop()
 PyObject* PyDOM::prop(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "prop", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .pushStack()
 PyObject* PyDOM::pushStack(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "pushStack", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .queue()
 PyObject* PyDOM::queue(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "queue", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .ready()
 PyObject* PyDOM::ready(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "ready", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .remove()
 PyObject* PyDOM::remove(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "remove", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .removeAttr()
 PyObject* PyDOM::removeAttr(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "removeAttr", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .removeClass()
 PyObject* PyDOM::removeClass(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "removeClass", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .removeData()
 PyObject* PyDOM::removeData(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "removeData", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .removeProp()
 PyObject* PyDOM::removeProp(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "removeProp", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .replaceAll()
 PyObject* PyDOM::replaceAll(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "replaceAll", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .replaceWith()
 PyObject* PyDOM::replaceWith(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "replaceWith", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .resize()
 PyObject* PyDOM::resize(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "resize", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .scroll()
 PyObject* PyDOM::scroll(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "scroll", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .scrollLeft()
 PyObject* PyDOM::scrollLeft(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "scrollLeft", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .scrollTop()
 PyObject* PyDOM::scrollTop(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "scrollTop", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .select()
 PyObject* PyDOM::select(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "select", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .serialize()
 PyObject* PyDOM::serialize(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "serialize", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .serializeArray()
 PyObject* PyDOM::serializeArray(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "serializeArray", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .show()
 PyObject* PyDOM::show(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "show", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .siblings()
 PyObject* PyDOM::siblings(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "siblings", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .slice()
 PyObject* PyDOM::slice(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "slice", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .slideDown()
 PyObject* PyDOM::slideDown(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "slideDown", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .slideToggle()
 PyObject* PyDOM::slideToggle(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "slideToggle", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .slideUp()
 PyObject* PyDOM::slideUp(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "slideUp", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .stop()
 PyObject* PyDOM::stop(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "stop", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .submit()
 PyObject* PyDOM::submit(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "submit", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .text()
 PyObject* PyDOM::text(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "text", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .toArray()
 PyObject* PyDOM::toArray(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "toArray", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .toggle()
 PyObject* PyDOM::toggle(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "toggle", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .toggleClass()
 PyObject* PyDOM::toggleClass(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "toggleClass", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .trigger()
 PyObject* PyDOM::trigger(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "trigger", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .triggerHandler()
 PyObject* PyDOM::triggerHandler(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "triggerHandler", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .unbind()
 PyObject* PyDOM::unbind(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "unbind", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .undelegate()
 PyObject* PyDOM::undelegate(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "undelegate", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .unwrap()
 PyObject* PyDOM::unwrap(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "unwrap", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .val()
 PyObject* PyDOM::val(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "val", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .width()
 PyObject* PyDOM::width(DOM* self, PyObject* args)
 {
-  return PyLong_FromLong(0);
+  JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "width", G_TYPE_NONE);
+  return PyLong_FromLong(jsc_value_to_double(jsVar));
 }
 
 // .wrap()
 PyObject* PyDOM::wrap(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "wrap", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .wrapAll()
 PyObject* PyDOM::wrapAll(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "wrapAll", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
 
 // .wrapInner()
 PyObject* PyDOM::wrapInner(DOM* self, PyObject* args)
 {
+  const char* string;
+  PyArg_ParseTuple(args, "|s", &string);
+  if (string)
+  {
+    JSCValue* jsVar = jsc_value_object_invoke_method(self->JSCV, "wrapInner", G_TYPE_STRING, string, G_TYPE_NONE);
+    return biuldPythonDOM(jsVar);
+  }
   return PyLong_FromLong(0);
 }
