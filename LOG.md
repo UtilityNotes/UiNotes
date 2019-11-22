@@ -10,8 +10,20 @@ General References:
 * WebKitGTK: https://webkitgtk.org/reference/webkit2gtk/stable/index.html
 ----------------------
 
+## November 23rd, 2019, End of week 13
+1. Progress made on main app (Linux)
+  * jQuery functions work with string parameters and can return a PyObject: **Mister Mjir**
+  
+----------------------
+
+## November 16th, 2019, End of week 12
+1. Progress made on main app (Linux)
+  * Added all jQuery functions that work with objects (always return 0): **Mister Mjir**
+
+----------------------
+
 ## November 9th, 2019, End of week 11
-1. Progress on main app (Linux)
+1. Progress made on main app (Linux)
   * Python can call functions with parameters: **Mister Mjir**
   * CSS function added: **Mister Mjir**
   * Factory function (Python DOM object can only be added from C++ factory function): **Mister Mjir**
