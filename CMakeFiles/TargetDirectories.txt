@@ -1,0 +1,5 @@
+/home/mihir/Coding/UiNotes/app/CMakeFiles/edit_cache.dir
+/home/mihir/Coding/UiNotes/app/CMakeFiles/uinotes.dir
+/home/mihir/Coding/UiNotes/app/CMakeFiles/rebuild_cache.dir
+/home/mihir/Coding/UiNotes/app/CMakeFiles/pyjs.dir
+/home/mihir/Coding/UiNotes/app/CMakeFiles/webextension.dir

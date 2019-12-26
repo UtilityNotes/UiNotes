@@ -1,5 +1,5 @@
 #include "gtk/gtk_manager.h"
-#define WEB_EXTENSIONS_DIR "/home/mihir/Coding/UiNotes/app/lib/webextension"
+#define WEB_EXTENSIONS_DIR "/home/mihir/Coding/UiNotes/app/lib/webextension/bin"
 #include <iostream>
 
 // Function prototypes
@@ -51,7 +51,7 @@ void GTKManager::init(int argc, char* args[])
   // Show inspector
   WebKitWebInspector* inspector = webkit_web_view_get_inspector(WEBKIT_WEB_VIEW(webView));
   webkit_web_inspector_show(WEBKIT_WEB_INSPECTOR(inspector));
-  
+
 
   gtk_widget_grab_focus(GTK_WIDGET(webView)); // Keyboard focus
 

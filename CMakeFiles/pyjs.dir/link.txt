@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpyjs.a  CMakeFiles/pyjs.dir/lib/pyjs/src/dom.cpp.o CMakeFiles/pyjs.dir/lib/pyjs/src/py_manager.cpp.o CMakeFiles/pyjs.dir/lib/pyjs/src/pyjs.cpp.o
+/usr/bin/ranlib libpyjs.a

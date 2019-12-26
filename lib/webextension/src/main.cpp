@@ -1,6 +1,6 @@
 #include <webkit2/webkit-web-extension.h>
-#include <pyjs/pyjs.h>
-#include "jquery/jquery.h"
+#include <pyjs.h>
+#include "jquery.h"
 
 static void document_loaded_callback(WebKitWebPage* webPage, gpointer userData)
 {

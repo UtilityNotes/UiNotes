@@ -14,6 +14,7 @@ typedef struct
 class PyDOM
 {
 public:
+  static PyObject* invokeMethod(DOM* self, PyObject* args, const char* methName);
   // Custom functions, see https://api.jquery.com/ for more information
   static PyObject* add(DOM* self, PyObject* args);
   static PyObject* addBack(DOM* self, PyObject* args);
