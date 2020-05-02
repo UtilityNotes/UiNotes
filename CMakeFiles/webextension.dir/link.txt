@@ -1,2 +1,0 @@
-/usr/bin/ar qc libwebextension.a  CMakeFiles/webextension.dir/lib/webextension/src/jquery.cpp.o CMakeFiles/webextension.dir/lib/webextension/src/main.cpp.o
-/usr/bin/ranlib libwebextension.a
