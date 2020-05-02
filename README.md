@@ -12,3 +12,10 @@
 
 The app of UiNotes
 - Currently a WIP (Work In Progress)
+
+## Branch Structure
+
+* master              | The safest branch, also for releases
+* dev-stable          | Everything works, but not release ready
+* dev-stable-[name]   | Everything works for this person's code
+* dev-unstable-[name] | The branch the person is currently editing
